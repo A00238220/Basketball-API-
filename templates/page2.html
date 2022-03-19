@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+  <head>
+
+    <!--Google Analytics Tag-->
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-8P81R6B46S"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-8P81R6B46S');
+        </script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Getting Started with Chart JS with www.chartjs3.com</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+      }
+      .chartMenu {
+        width: 100vw;
+        height: 40px;
+        background: #1A1A1A;
+        color: rgba(255, 26, 104, 1);
+      }
+      .chartMenu p {
+        padding: 10px;
+        font-size: 20px;
+      }
+      .chartCard {
+        width: 100vw;
+        height: calc(100vh - 40px);
+        background: #1A1A1A;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .chartBox {
+        width: 400px;
+        padding: 20px;
+        border-radius: 20px;
+        border: solid 3px rgba(255, 26, 104, 1);
+        background: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="chartMenu">
+      <center>
+        <p> DASHBOARD 2</p>
+      <p><button><a href="/"> Home</button></a></p>
+      <button><a href="/page1"> Dashboard 1</a></button>
+      </center>
+    </div>
+
+    <div class="chartCard">
+      <div class="chartBox">
+        <p>2018 Season Averages (Davis vs Embiid vs Harden)</p>
+        <canvas id="myChartBar2"></canvas>
+
+        <p> 
+          The grouped bar plot shows an average season performance visual for Anthony Davis and Joel Embiid and James Harden for the 2018 season. James Harden seems to be doing better in all metrices over Anthony Davis and Joel Embiid.
+        </p>
+
+      </div>
+
+      <div class="chartBox">
+        <p>Lebron James 2005 Game Season Performance</p>
+        <canvas id="myChartBar3"></canvas>
+
+        <p> 
+          The line chart shows a visual of Lebron James performances on a few metrices for the 2005 game season.
+        </p>
+
+      </div>
+      
+    </div>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+
+    // BarChart4 
+    // setup 
+    const dataBar2 = {
+      labels: {{extract2|safe}},
+      datasets: [{
+        label: 'Anthony Davis',
+        data: {{davis|safe}},
+        backgroundColor: 'rgba(75, 192, 192, 0.2)',        
+        borderColor: 'rgba(75, 192, 192, 1)',
+         
+        borderWidth: 1
+      },
+      {
+        label: 'Joel Embiid',
+        data: {{embiid|safe}},
+        backgroundColor: 'rgba(255, 159, 64, 0.2)',
+        borderColor: 'rgba(255, 159, 64, 1)',
+         
+        borderWidth: 1
+      },
+
+      {
+        label: 'James Harden',
+        data: {{harden|safe}},
+        backgroundColor: 'rgba(0, 0, 0, 0.2)',
+        borderColor: 'rgba(0, 0, 0, 1)',
+         
+        borderWidth: 1
+      }
+      ]
+    };
+
+    // config 
+    const configBar2 = {
+      type: 'bar',
+      data: dataBar2,
+      options: {
+        aspectRatio: 1,
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    };
+
+    // render init block
+    const myChartBar2 = new Chart(
+      document.getElementById('myChartBar2'),
+      configBar2
+    );
+
+    // BubbleChart
+    // setup 
+    const dataBar3 = {
+      labels: {{extract3|safe}},
+      datasets: [{
+        label: 'Lebron James',
+        data: {{lebron|safe}},
+        backgroundColor: [
+          'rgba(255, 26, 104, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)',
+          'rgba(0, 0, 0, 0.2)'
+        ],
+        borderColor: [
+          'rgba(255, 26, 104, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)',
+          'rgba(0, 0, 0, 1)'
+        ],
+         
+        borderWidth: 1
+      }
+      ]
+    };
+
+    // config 
+    const configBar3 = {
+      type: 'line',
+      data: dataBar3,
+      options: {
+        aspectRatio: 1,
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    };
+
+    // render init block
+    const myChartBar3 = new Chart(
+      document.getElementById('myChartBar3'),
+      configBar3
+    );
+
+    </script>
+
+    <center>
+    <button><a href="/"> Home</button></a>
+    </center>
+
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

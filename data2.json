@@ -1,0 +1,29 @@
+{
+    "id": 1,
+    "date": "2018-10-16 00:00:00 UTC",
+    "home_team": {
+        "id": 2,
+        "abbreviation": "BOS",
+        "city": "Boston",
+        "conference": "East",
+        "division": "Atlantic",
+        "full_name": "Boston Celtics",
+        "name": "Celtics"
+    },
+    "home_team_score": 105,
+    "period": 4,
+    "postseason": false,
+    "season": 2018,
+    "status": "Final",
+    "time": " ",
+    "visitor_team": {
+        "id": 23,
+        "abbreviation": "PHI",
+        "city": "Philadelphia",
+        "conference": "East",
+        "division": "Atlantic",
+        "full_name": "Philadelphia 76ers",
+        "name": "76ers"
+    },
+    "visitor_team_score": 87
+}

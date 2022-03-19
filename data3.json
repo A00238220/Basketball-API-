@@ -1,0 +1,29 @@
+{
+    "id": 2,
+    "date": "2018-10-16 00:00:00 UTC",
+    "home_team": {
+        "id": 10,
+        "abbreviation": "GSW",
+        "city": "Golden State",
+        "conference": "West",
+        "division": "Pacific",
+        "full_name": "Golden State Warriors",
+        "name": "Warriors"
+    },
+    "home_team_score": 108,
+    "period": 4,
+    "postseason": false,
+    "season": 2018,
+    "status": "Final",
+    "time": " ",
+    "visitor_team": {
+        "id": 21,
+        "abbreviation": "OKC",
+        "city": "Oklahoma City",
+        "conference": "West",
+        "division": "Northwest",
+        "full_name": "Oklahoma City Thunder",
+        "name": "Thunder"
+    },
+    "visitor_team_score": 100
+}

@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    
+        <!--Google Analytics Tag-->
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-8P81R6B46S"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-8P81R6B46S');
+        </script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sharon Bandele</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+      }
+      .chartMenu {
+        width: 100vw;
+        height: 40px;
+        background: #1A1A1A;
+        color: rgba(255, 26, 104, 1);
+      }
+      .chartMenu p {
+        padding: 10px;
+        font-size: 20px;
+      }
+      .chartCard {
+        width: 100vw;
+        height: calc(100vh - 40px);
+        background: #1A1A1A;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .chartBox {
+        width: 350px;
+        padding: 20px;
+        border-radius: 20px;
+        border: solid 3px rgba(255, 26, 104, 1);
+        background: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="chartMenu">
+      <center>
+        <p> DASHBOARD 1</p>
+      <p><button><a href="/"> Home</button></a></p>
+      <button><a href="/page2"> Dashboard 2</a></button>
+      </center>
+    </div>
+    <div class="chartCard">
+      <div class="chartBox"> 
+        <p>2018 Season Game Score Comparison (Celtics vs 76ers)</p>       
+        <canvas id="myChart"></canvas>
+        <p> 
+          The bar plot shows a visual of game score comparison between Boston Celtics and Philadelphia 76ers for the 2018 season game one (1). Celtics appears to have scored higher with a score of 105 over 76ers with a score of 87.
+          </p>
+      </div>
+
+      <div class="chartBox">
+        <p>2018 Season Averages (Steph Curry vs Lebron James)</p>
+        <canvas id="myChartBar"></canvas>
+
+        <p>                
+          The bar plot shows an average season performance visual between Lebron James and Steph Curry for the 2018 season. Steph Curry seems to be doing better in performance indicators such as free throw made, defensive rebound,  assist, and a tie in total points, while Lebron James had more games played for the 2018 season.
+          </p>
+
+      </div>
+
+      <div class="chartBox">
+        <p>2018 Season Game Score Comparison (GSW vs OKC)</p>
+        <canvas id="myChartDoughnut"></canvas>
+         <p>                
+          The doughnut chart shows a visual of game score comparison between Golden State Warriors and Oklahoma City Thunder for the 2018 season game two (2). Golden State Warriors appears to have scored higher with a score of 108 over Oklahoma City Thunder with a score of 100
+          </p>
+
+      </div>
+
+
+
+    </div>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+
+    // BarChart1
+    // setup 
+    const data = {
+      labels: {{labels|safe}},
+      datasets: [{
+        label: 'Game Score',
+        data: {{values|safe}},
+        backgroundColor: [
+          'rgba(255, 26, 104, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)',
+          'rgba(0, 0, 0, 0.2)'
+        ],
+        borderColor: [
+          'rgba(255, 26, 104, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)',
+          'rgba(0, 0, 0, 1)'
+        ],
+        borderWidth: 1
+      }]
+    };
+
+    // config 
+    const config = {
+      type: 'bar',
+      data,
+      options: {
+        aspectRatio: 1,
+        
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    };
+
+    // render init block
+    const myChart = new Chart(
+      document.getElementById('myChart'),
+      config
+    );
+    
+  // BarChart2
+   // setup 
+    const dataBar = {
+      labels: {{extract|safe}},
+      datasets: [
+        {
+        label: 'Lebron James',
+        data: {{lebron|safe}},
+        backgroundColor: 'rgba(255, 26, 104, 0.2)',
+        borderColor: 'rgba(255, 26, 104, 1)',          
+        borderWidth: 1
+      },
+      {
+        label: 'Steph Curry',
+        data: {{steph|safe}},
+        backgroundColor:'rgba(54, 162, 235, 0.2)',
+        borderColor: 'rgba(54, 162, 235, 1)',
+        borderWidth: 1
+      }]
+    };
+
+    // config 
+    const configBar = {
+      type: 'bar',
+      data: dataBar, 
+      options: {
+        aspectRatio: 1,
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    };
+
+    // render init block
+    const myChartBar = new Chart(
+      document.getElementById('myChartBar'),
+      configBar
+    );
+
+    // DoughnutChart
+   // setup 
+    const dataDoughnut = {
+      labels: {{labels2|safe}},
+      datasets: [
+        {
+        label: 'Lebron James',
+        data: {{values2|safe}},
+        backgroundColor: [
+          'rgba(255, 26, 104, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)',
+          'rgba(0, 0, 0, 0.2)'
+        ],
+        borderColor: [
+          'rgba(255, 26, 104, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)',
+          'rgba(0, 0, 0, 1)'
+        ],          
+        borderWidth: 1
+      }]
+    };
+
+    // config 
+    const configDoughnut = {
+      type: 'doughnut',
+      data: dataDoughnut, 
+      options: {
+        aspectRatio: 1,
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    };
+
+    // render init block
+    const myChartDoughnut = new Chart(
+      document.getElementById('myChartDoughnut'),
+      configDoughnut
+    );      
+    </script>
+    
+  
+    
+    
+    
+  
+
+  </body>
+</html>
